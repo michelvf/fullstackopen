@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Mis ejercicios
+part3/part3-notes-backend-part3-2/
