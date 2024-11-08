@@ -1,0 +1,56 @@
+{
+  "persons": [
+    {
+      "id": "1",
+      "name": "Arto Hellas",
+      "number": "040-123456",
+      "important": true
+    },
+    {
+      "id": "2",
+      "name": "Ada Lovelace",
+      "number": "39-44-5323523",
+      "important": true
+    },
+    {
+      "id": "3",
+      "name": "Dan Abramov",
+      "number": "12-43-234345",
+      "important": true
+    },
+    {
+      "id": "4",
+      "name": "Mary Poppendieck",
+      "number": "39-23-6423122",
+      "important": true
+    },
+    {
+      "id": "3e05",
+      "name": "Cuco",
+      "important": false,
+      "number": "123456"
+    },
+    {
+      "id": "1645",
+      "name": "pepe",
+      "number": "53-46-312345",
+      "important": false
+    },
+    {
+      "id": "a6bb",
+      "name": "Pepito",
+      "number": "53-7-2123456",
+      "important": false
+    },
+    {
+      "id": "a317",
+      "name": "Condorito",
+      "number": "56-9-12345647"
+    },
+    {
+      "id": "4602",
+      "name": "Coné",
+      "number": "56-7-2548969"
+    }
+  ]
+}

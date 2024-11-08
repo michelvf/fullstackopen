@@ -1,0 +1,32 @@
+{
+  "hash": "4b66f14f",
+  "browserHash": "ce7ce650",
+  "optimized": {
+    "react-dom/client": {
+      "src": "../../../part2-phonebook/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "83f66875",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../../part2-phonebook/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "e9f316e9",
+      "needsInterop": true
+    },
+    "axios": {
+      "src": "../../../part2-phonebook/node_modules/axios/index.js",
+      "file": "axios.js",
+      "fileHash": "1a681867",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-I5GNRRCU": {
+      "file": "chunk-I5GNRRCU.js"
+    },
+    "chunk-6TJCVOLN": {
+      "file": "chunk-6TJCVOLN.js"
+    }
+  }
+}
