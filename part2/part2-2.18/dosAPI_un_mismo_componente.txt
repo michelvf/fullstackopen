@@ -1,0 +1,114 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const TwoApiComponent = () => {
+    const [firstApiData, setFirstApiData] = useState(null);
+    const [secondApiData, setSecondApiData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // Llamada a la primera API
+                const response1 = await axios.get('URL_DE_LA_PRIMERA_API');
+                setFirstApiData(response1.data);
+
+                // Llamada a la segunda API con datos de la primera
+                const response2 = await axios.get(`URL_DE_LA_SEGUNDA_API?param=${response1.data.someField}`);
+                setSecondApiData(response2.data);
+
+            } catch (error) {
+                console.error('Error al obtener datos de las APIs', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    if (loading) return <div>Cargando...</div>;
+
+    return (
+        <div>
+            <h1>Datos de la Primera API:</h1>
+            <pre>{JSON.stringify(firstApiData, null, 2)}</pre>
+            <h1>Datos de la Segunda API:</h1>
+            <pre>{JSON.stringify(secondApiData, null, 2)}</pre>
+        </div>
+    );
+};
+
+export default TwoApiComponent;
+
+
+Usando el módulo Services:
+
+apiServices
+
+import axios from 'axios';
+
+const fetchFirstApiData = async () => {
+    try {
+        const response1 = await axios.get('URL_DE_LA_PRIMERA_API');
+        return response1.data;
+    } catch (error) {
+        console.error('Error al obtener datos de la primera API', error);
+        throw error;
+    }
+};
+
+const fetchSecondApiData = async (param) => {
+    try {
+        const response2 = await axios.get(`URL_DE_LA_SEGUNDA_API?param=${param}`);
+        return response2.data;
+    } catch (error) {
+        console.error('Error al obtener datos de la segunda API', error);
+        throw error;
+    }
+};
+
+export { fetchFirstApiData, fetchSecondApiData };
+
+
+TwoApiComponent.jsx
+
+import React, { useEffect, useState } from 'react';
+import { fetchFirstApiData, fetchSecondApiData } from './apiService';
+
+const TwoApiComponent = () => {
+    const [firstApiData, setFirstApiData] = useState(null);
+    const [secondApiData, setSecondApiData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const firstData = await fetchFirstApiData();
+                setFirstApiData(firstData);
+
+                const secondData = await fetchSecondApiData(firstData.someField);
+                setSecondApiData(secondData);
+            } catch (error) {
+                console.error('Error al obtener datos de las APIs', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    if (loading) return <div>Cargando...</div>;
+
+    return (
+        <div>
+            <h1>Datos de la Primera API:</h1>
+            <pre>{JSON.stringify(firstApiData, null, 2)}</pre>
+            <h1>Datos de la Segunda API:</h1>
+            <pre>{JSON.stringify(secondApiData, null, 2)}</pre>
+        </div>
+    );
+};
+
+export default TwoApiComponent;
