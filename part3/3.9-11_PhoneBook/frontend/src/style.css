@@ -1,0 +1,30 @@
+h2 {
+  color: green;
+  font-style: italic;
+}
+
+.person {
+  color: darkblue;
+  padding-top: 3px;
+  font-size: 15px;
+}
+
+.error {
+  color: red;
+  background: rgb(237, 237, 237);
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.success {
+  color: green;
+  background: rgb(237, 237, 237);
+  font-size: 20px;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
